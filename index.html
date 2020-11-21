@@ -4,6 +4,28 @@
         <title>Launch Checklist</title>
         <link rel = "stylesheet" type = "text/css" href = "styles.css" />
         <script src = "script.js"></script>
+        <script>
+        window.addEventListener("load", function() {
+            let form = document.querySelector("form");
+   
+        form.addEventListener("submit", function(event) {
+        let pilotNameInput = document.querySelector("input[name=pilotName]");
+        let copilotNameInput = document.querySelector("input[name=copilotName]");
+        let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
+        let cargoMassInput = document.querySelector("input[name=cargoMass]");
+            if (pilotNameInput.value === "" || 
+                copilotNameInput.value === "" || 
+                fuelLevelInput ==="" || 
+                cargoMassInput === "") {
+                alert("All fields are required!");
+               
+            // stop the form submission
+                event.preventDefault();
+             
+        };
+        });
+        }); 
+        </script>
     </head>
     <body>
         <h1>Launch Checklist Form</h1>

@@ -11,3 +11,30 @@
 </ol>
 <img src="${}">
 */
+
+//Validate all form fields are complete
+//function checkRequired()
+// form.addEventListener("submit", function(event) {
+//    let pilotNameInput = document.querySelector("input[name=pilotName]");
+//    let copilotNameInput = document.querySelector("input[name=copilotName]");
+//    let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
+//    let cargoMassInput = document.querySelector("input[name=cargoMass]");
+//      if (pilotNameInput.value === "" || 
+//          copilotNameInput.value === "" || 
+//          fuelLevelInput ==="" || 
+//          cargoMassInput === "") {
+//        alert("All fields are required!");
+//        // stop the form submission
+//        event.preventDefault();
+//     }
+//  //    if ((pilotNameInput.type !== string) ||
+//  //    (copilotNameInput.type !== string) ||
+//  //    (fuelLevelInput.type !== number) || cargoMassInput !== number)){
+//  //    invalidEntryMessage()
+//  //    };
+//  });
+// })
+//invalid entry pop-up message
+function invalidEntryMessage(){
+   window.alert("Invalid entry")
+}
