@@ -1,20 +1,30 @@
 // Write your JavaScript code here!
+window.addEventListener("load", function(){
+fetch("https://handlers.education.launchcode.org/static/planets.json").
+      then(function(response) {
+      response.json().then( function(json) {
+      let data = json[2];
 
-/* This block of code shows how to format the HTML once you fetch some planetary JSON!
+
+// This block of code shows how to format the HTML once you fetch some planetary JSON!
+
+let target = document.getElementById("missionTarget");
+target.innerHTML = `
 <h2>Mission Destination</h2>
 <ol>
-   <li>Name: ${}</li>
-   <li>Diameter: ${}</li>
-   <li>Star: ${}</li>
-   <li>Distance from Earth: ${}</li>
-   <li>Number of Moons: ${}</li>
-</ol>
-<img src="${}">
-*/
-
+   <li>Name: ${data.name}</li>
+   <li>Diameter: ${data.diameter}</li>
+   <li>Star: ${data.star}</li>
+   <li>Distance from Earth: ${data.distance}</li>
+   <li>Number of Moons: ${data.moons}</li>
+   </ol>
+   <img src="${data.image}">
+`
+      });
+   });
 //Validate all form fields are complete
 
-window.addEventListener("load", function() {
+
    let form = document.querySelector("form");
 //invalid entry pop-up message
 function invalidEntryMessage(){
@@ -43,7 +53,7 @@ let cargoMassInput = document.querySelector("input[name=cargoMass]");
    {   
       invalidEntryMessage();
   
-   } else 
+   } else {
    // Updating Shuttle Requirements
    function shuttleNotReady(){
       let launchStatusVar = document.getElementById("launchStatus");
@@ -55,8 +65,9 @@ let cargoMassInput = document.querySelector("input[name=cargoMass]");
       let launchStatusVar = document.getElementById("launchStatus");
       launchStatusVar.innerHTML = "Shuttle is ready for launch";
       document.getElementById("launchStatus").style.color = "green";
+      document.getElementById("faultyItems").style.visibility = "visible";
    }
-   {
+   
       let pilotStatusVar = document.getElementById("pilotStatus");
       let copilotStatusVar = document.getElementById("copilotStatus");
       let fuelStatusVar = document.getElementById("fuelStatus");
@@ -75,10 +86,11 @@ let cargoMassInput = document.querySelector("input[name=cargoMass]");
       if (fuelLevelInput.value >= 10000 && 
          cargoMassInput.value <=10000) {
          shuttleReady();
-         }
+   }
       
    }
       event.preventDefault();
    });
+      
 }); 
 
