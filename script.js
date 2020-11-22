@@ -1,9 +1,11 @@
 // Write your JavaScript code here!
 window.addEventListener("load", function(){
-fetch("https://handlers.education.launchcode.org/static/planets.json").
+   //random number from 0 to 5
+   let randomPlanet = Math.floor(Math.random()*5) 
+   fetch("https://handlers.education.launchcode.org/static/planets.json").
       then(function(response) {
       response.json().then( function(json) {
-      let data = json[2];
+      let data = json[randomPlanet];
 
 
 // This block of code shows how to format the HTML once you fetch some planetary JSON!
