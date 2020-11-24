@@ -40,14 +40,13 @@ let pilotNameInput = document.querySelector("input[name=pilotName]");
 let copilotNameInput = document.querySelector("input[name=copilotName]");
 let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
 let cargoMassInput = document.querySelector("input[name=cargoMass]");
-
+//check for required fields
    if (pilotNameInput.value === "" || 
        copilotNameInput.value === "" || 
-       fuelLevelInput ==="" || 
-       cargoMassInput === "") {
+       fuelLevelInput.value ==="" || 
+       cargoMassInput.value === "") {
        alert("All fields are required!");  
-   // stop the form submission
-     //  event.preventDefault();     
+//check for correct value t ypes   
    } else if (isNaN(fuelLevelInput.value)|| 
       isNaN(cargoMassInput.value) ||
       isNaN(pilotNameInput.value)===false ||
@@ -56,7 +55,7 @@ let cargoMassInput = document.querySelector("input[name=cargoMass]");
       invalidEntryMessage();
   
    } else {
-   // Updating Shuttle Requirements
+   // Updating Shuttle Requirements on Form
    function shuttleNotReady(){
       let launchStatusVar = document.getElementById("launchStatus");
       launchStatusVar.innerHTML = "Shuttle not ready for launch";
@@ -80,10 +79,16 @@ let cargoMassInput = document.querySelector("input[name=cargoMass]");
       if (fuelLevelInput.value < 10000) {
          fuelStatusVar.innerHTML = `There is not enough fuel for the journey`;
           shuttleNotReady();
+      } else {
+         fuelStatusVar.innerHTML = `Fuel level high enough for launch`;
+         shuttleReady();
       }
       if (cargoMassInput.value >10000) {
          cargoStatusVar.innerHTML = `There is too much mass for the shuttle to take off`;
          shuttleNotReady();
+      } else {
+         cargoStatusVar.innerHTML = `Cargo mass low enough for launch`;
+         shuttleReady();
       }
       if (fuelLevelInput.value >= 10000 && 
          cargoMassInput.value <=10000) {
