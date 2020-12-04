@@ -93,7 +93,9 @@ let cargoMassInput = document.querySelector("input[name=cargoMass]");
       if (fuelLevelInput.value >= 10000 && 
          cargoMassInput.value <=10000) {
          shuttleReady();
-   }
+       } else {
+          shuttleNotReady();
+       }
       
    }
       event.preventDefault();
