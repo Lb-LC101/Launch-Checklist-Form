@@ -1,10 +1,11 @@
 // Write your JavaScript code here!
 window.addEventListener("load", function(){
    //random number from 0 to 5
-   let randomPlanet = Math.floor(Math.random()*5) 
+   // let randomPlanet = Math.floor(Math.random()*5) 
    fetch("https://handlers.education.launchcode.org/static/planets.json").
       then(function(response) {
       response.json().then( function(json) {
+         let randomPlanet = Math.floor(Math.random()*json.length) 
       let data = json[randomPlanet];
 
 
@@ -29,9 +30,9 @@ target.innerHTML = `
 
    let form = document.querySelector("form");
 //invalid entry pop-up message
-function invalidEntryMessage(){
-   window.alert("Invalid entry") 
-}
+// function invalidEntryMessage(){
+//    window.alert("Invalid entry") 
+// }
 
 
 
@@ -46,13 +47,14 @@ let cargoMassInput = document.querySelector("input[name=cargoMass]");
        fuelLevelInput.value ==="" || 
        cargoMassInput.value === "") {
        alert("All fields are required!");  
-//check for correct value t ypes   
+//check for correct value types   
    } else if (isNaN(fuelLevelInput.value)|| 
       isNaN(cargoMassInput.value) ||
       isNaN(pilotNameInput.value)===false ||
       isNaN(copilotNameInput.value)===false)
    {   
-      invalidEntryMessage();
+    //  invalidEntryMessage();
+    window.alert("Invalid entry") ;
   
    } else {
    // Updating Shuttle Requirements on Form
